@@ -7,16 +7,11 @@ export async function createServer() {
     logger: true,
   });
 
-  // This loads all plugins defined in plugins
-  // those should be support plugins that are reused
-  // through your application
   app.register(AutoLoad, {
     dir: join(__dirname, 'plugins'),
     // Options: opts
   });
 
-  // This loads all plugins defined in routes
-  // define your routes in one of these
   app.register(AutoLoad, {
     dir: join(__dirname, 'routes'),
     // Options: opts
@@ -24,8 +19,7 @@ export async function createServer() {
 
   // Run the server!
   try {
-    const address = await app.listen({ port: 3000 });
-    app.log.info(`Server is now listening on ${address}`);
+    await app.listen({ port: 3000 });
   } catch (error: unknown) {
     app.log.error(error);
     process.exit(1);

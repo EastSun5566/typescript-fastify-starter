@@ -8,14 +8,11 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
-    "start": "npm run build:ts && fastify start -l info dist/app.js",
-    "build:ts": "tsc",
-    "watch:ts": "tsc -w",
-    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
-    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
     "start:dev": "nodemon -e ts -x ts-node src",
-    "lint": "eslint src --fix --ignore-path .gitignore --ext .js,.ts"
+    "start": "pnpm run build && node dist",
+    "build": "tsc",
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts src"
   },
   "keywords": [
     "Typescript",
@@ -35,12 +32,9 @@
     "@types/tap": "^15.0.5",
     "@typescript-eslint/eslint-plugin": ">=5.31.0",
     "@typescript-eslint/parser": ">=5.31.0",
-    "concurrently": "^7.0.0",
     "eslint": ">=8.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-xo": "^0.43.1",
-    "eslint-config-xo-typescript": "^0.54.1",
     "eslint-plugin-import": "^2.26.0",
     "fastify-tsconfig": "^1.0.1",
     "nodemon": "^2.0.20",
