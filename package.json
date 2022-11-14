@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
     "start": "npm run build:ts && fastify start -l info dist/app.js",
     "build:ts": "tsc",
