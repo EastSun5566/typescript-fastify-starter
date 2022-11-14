@@ -15,6 +15,7 @@ specifiers:
   fastify-plugin: ^4.0.0
   fastify-tsconfig: ^1.0.1
   nodemon: ^2.0.20
+  simple-git-hooks: ^2.8.1
   tap: ^16.1.0
   ts-node: ^10.9.1
   typescript: '>=4.4'
@@ -36,6 +37,7 @@ devDependencies:
   eslint-config-xo-typescript: 0.54.1_ckveduld4ic6bi6chjbrtvpg7q
   fastify-tsconfig: 1.0.1
   nodemon: 2.0.20
+  simple-git-hooks: 2.8.1
   tap: 16.3.1_mwhvu7sfp6vq5ryuwb6hlbjfka
   ts-node: 10.9.1_cbe7ovvae6zqfnmtgctpgpys54
   typescript: 4.8.4
@@ -2318,6 +2320,12 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: true
+
+  /simple-git-hooks/2.8.1:
+    resolution: {integrity: sha512-DYpcVR1AGtSfFUNzlBdHrQGPsOhuuEJ/FkmPOOlFysP60AHd3nsEpkGq/QEOdtUyT1Qhk7w9oLmFoMG+75BDog==}
+    hasBin: true
+    requiresBuild: true
     dev: true
 
   /simple-update-notifier/1.0.7:
