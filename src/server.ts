@@ -2,7 +2,6 @@ import { join } from 'node:path';
 import AutoLoad from '@fastify/autoload';
 import createApp from 'fastify';
 
-
 export async function createServer() {
   const app = createApp({
     logger: true
