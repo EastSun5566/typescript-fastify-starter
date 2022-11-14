@@ -25,7 +25,8 @@ export class BookController implements IBookController {
     return this.bookService.find();
   }
 
-  show(request) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  show(request: any) {
     const { params }: { params: GetBookDTO } = request;
     if (!params.id) {
       throw new Error();
@@ -34,7 +35,8 @@ export class BookController implements IBookController {
     return this.bookService.findByID(params.id);
   }
 
-  async store(request) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async store(request: any) {
     const { body }: { body?: CreateBookDTO } = request;
     if (!body) {
       throw new Error();

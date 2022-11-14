@@ -1,23 +1,32 @@
-# Getting Started with [Fastify-CLI](https://www.npmjs.com/package/fastify-cli)
-This project was bootstrapped with Fastify-CLI.
+# TypeScript Fastify Starter
 
-## Available Scripts
+[![License](https://img.shields.io/github/license/EastSun5566/typescript-fastify-starter.svg?style=for-the-badge)](https://github.com/EastSun5566/typescript-fastify-starter/blob/main/LICENSE)
 
-In the project directory, you can run:
+> ✨ A starter for my TypeScript Fastify project
 
-### `npm run dev`
+## Getting Started
 
-To start the app in dev mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+# install deps
+pnpm i
 
-### `npm start`
+# start dev
+pnpm start:dev
 
-For production mode
+# start prod
+pnpm start
 
-### `npm run test`
+# start test
+pnpm test
+```
 
-Run the test cases.
+```sh
+# start dev with docker
+docker-compose up
 
-## Learn More
+# start prod with docker
+docker-compose -f docker-compose.prod.yml up -d
 
-To learn Fastify, check out the [Fastify documentation](https://www.fastify.io/docs/latest/).
+# start test with docker
+docker-compose run server npm test
+```
