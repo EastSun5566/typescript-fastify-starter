@@ -3,15 +3,11 @@
   "version": "0.0.1",
   "description": "✨ A starter for my TypeScript Fastify project",
   "main": "index.ts",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start:dev": "nodemon -e ts -x ts-node src",
     "start": "pnpm run build && node dist",
     "build": "tsc",
-    "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
     "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts src"
   },
   "keywords": [
@@ -29,7 +25,6 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@types/tap": "^15.0.5",
     "@typescript-eslint/eslint-plugin": ">=5.31.0",
     "@typescript-eslint/parser": ">=5.31.0",
     "eslint": ">=8.0.0",
@@ -39,7 +34,6 @@
     "fastify-tsconfig": "^1.0.1",
     "nodemon": "^2.0.20",
     "simple-git-hooks": "^2.8.1",
-    "tap": "^16.1.0",
     "ts-node": "^10.9.1",
     "typescript": ">=4.4"
   },
