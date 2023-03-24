@@ -9,12 +9,10 @@ export async function createServer() {
 
   app.register(AutoLoad, {
     dir: join(__dirname, 'plugins'),
-    // Options: opts
   });
 
   app.register(AutoLoad, {
     dir: join(__dirname, 'routes'),
-    // Options: opts
   });
 
   // Run the server!
