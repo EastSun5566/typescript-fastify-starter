@@ -1,6 +1,8 @@
 # base stage
 FROM node:16-slim as base
 
+RUN npm install -g pnpm
+
 ENV TINI_VERSION=v0.19.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
@@ -10,14 +12,11 @@ WORKDIR /app
 
 USER node
 
-# RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
-RUN npm install -g pnpm
-
 COPY --chown=node:node package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile --prod
+RUN pnpm install
 COPY --chown=node:node . .
 
-EXPOSE 8080
+EXPOSE ${PORT}
 
 # dev stage
 FROM base as dev
