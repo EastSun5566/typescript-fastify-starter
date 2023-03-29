@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/github/license/EastSun5566/typescript-fastify-starter.svg?style=for-the-badge)](https://github.com/EastSun5566/typescript-fastify-starter/blob/main/LICENSE)
 
-> ✨ A starter for my TypeScript Fastify project
+> ✨ A starter for my Fastify project
 
 ## Getting Started
 
