@@ -1,27 +1,33 @@
-// import type { BookEntity } from '../entities';
-// import { BookRepo } from '../repos';
+import type {
+  BookEntity,
+  UpdateBookDTO,
+  CreateBookDTO,
+} from '../entities';
 
 export class BookService {
-  // eslint-disable-next-line no-useless-constructor
   constructor(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private readonly bookRepos: InstanceType<any>,
+    private readonly bookRepos: BookEntity[] = [],
   ) {}
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  find(): Promise<any[]> {
-    return this.bookRepos.find();
-  }
+  find = () => this.bookRepos;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  findByID(id: any['id']): Promise<any> {
-    return this.bookRepos.findByID(id);
-  }
+  findByID = (id: number) => this.bookRepos.find((book) => book.id === id);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  create(book: Omit<any, 'id'>): Promise<any> {
-    return this.bookRepos.create(book);
-  }
+  update = (id: number, updateBookDTO: UpdateBookDTO) => {
+    const index = this.bookRepos.findIndex((book) => book.id === id);
+    if (index === -1) return undefined;
+
+    const book = { ...this.bookRepos[index], ...updateBookDTO };
+    this.bookRepos[index] = book;
+
+    return book;
+  };
+
+  create = (createBookDTO: CreateBookDTO) => {
+    const book = { id: this.bookRepos.length + 1, ...createBookDTO };
+    this.bookRepos.push(book);
+    return book;
+  };
 }
 
 export default BookService;

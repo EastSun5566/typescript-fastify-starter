@@ -1,19 +1,25 @@
-import { join } from 'node:path';
-import AutoLoad from '@fastify/autoload';
 import createApp from 'fastify';
+
+import { sensiblePlugin } from './plugins';
+import {
+  homeRoute,
+  bookRoute,
+} from './routes';
 
 export async function createServer() {
   const app = createApp({
-    logger: true,
+    logger: {
+      transport: {
+        target: 'pino-pretty',
+      },
+    },
   });
 
-  app.register(AutoLoad, {
-    dir: join(__dirname, 'plugins'),
-  });
+  app.register(sensiblePlugin);
 
-  app.register(AutoLoad, {
-    dir: join(__dirname, 'routes'),
-  });
+  const PATH_PREFIX = 'api';
+  app.register(homeRoute);
+  app.register(bookRoute, { prefix: PATH_PREFIX });
 
   // Run the server!
   try {

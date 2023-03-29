@@ -1,15 +1,6 @@
-// import type { RouteShorthandOptionsWithHandler } from 'fastify';
-
-import type { HomeService } from '../services';
-
 export class HomeController {
-  constructor(
-    private readonly homeService: InstanceType<typeof HomeService>,
-  ) {}
-
-  index() {
-    return this.homeService.greet();
-  }
+  // eslint-disable-next-line class-methods-use-this
+  index = () => 'Hello World!';
 }
 
 export default HomeController;
