@@ -10,7 +10,8 @@ WORKDIR /app
 
 USER node
 
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+# RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+RUN npm install -g pnpm
 
 COPY --chown=node:node package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile --prod
