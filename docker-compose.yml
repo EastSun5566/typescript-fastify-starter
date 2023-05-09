@@ -10,19 +10,3 @@ services:
     environment:
       HOST: ${HOST}
       PORT: ${PORT}
-    depends_on:
-      - db
-
-  db:
-    image: postgres:latest
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-volumes:
-  db_data:
