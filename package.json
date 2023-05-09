@@ -7,7 +7,8 @@
     "start:dev": "nodemon -e ts -x ts-node src",
     "start": "pnpm run build && node dist",
     "build": "rimraf dist && tsc",
-    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts --cache src"
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts --cache src",
+    "test": "vitest"
   },
   "keywords": [
     "Typescript",
@@ -35,7 +36,8 @@
     "rimraf": "^5.0.0",
     "simple-git-hooks": "^2.8.1",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.2",
+    "vitest": "^0.31.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint"
